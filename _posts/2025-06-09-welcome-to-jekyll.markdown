@@ -1,29 +1,18 @@
 ---
 layout: post
-title:  "Welcome to Jekyll!"
-date:   2025-06-09 11:57:40 -0600
-categories: jekyll update
+title:  "Seans log"
+date:   2025-06-09 13:40:59 -0600
+categories: Sean Blake
 ---
-You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
+It's been a while since working in Jekyll. But setting up the env, goin through dependencies, sorting out why certain gems werent working, and figuring out a lightweight env to easily deploy felt somewhat invigorating. I even shamefully but funnily struggled for 30 mins to get my Jekyll setup on Git Pages. 
 
-Jekyll requires blog post files to be named according to the following format:
+Working in Jekyll is nice. Simple. Easy. Setting up post feels intuitive, and simply pushing changes should make life easy when using this.
 
-`YEAR-MONTH-DAY-title.MARKUP`
+Styling has been a little bit of a nuisance. There's no simple way to do a bundle or gem for a boostrap for Jekyll. That will take some time. But, in the course of 3 hours, I was able to get the env up and running smoothly. It appears though that the default theme has capabilities for responsiveness so im prolly just gonna use that to save time.
 
-Where `YEAR` is a four-digit number, `MONTH` and `DAY` are both two-digit numbers, and `MARKUP` is the file extension representing the format used in the file. After that, include the necessary front matter. Take a look at the source for this post to get an idea about how it works.
+Next steps are to find a bootstrap that will actually work well with Jekyll. Two unknowns is that minima is throwing a bunch of warnings that I gotta fix. The other is that I'm using the default theme, and I'm not sure if I want to just use that and overwrite or create one from scratch. I'm leaning toward using the existing theme and changing it to my liking but it does come with its own set of headaches... But creating my own means way more time. 
 
-Jekyll also offers powerful support for code snippets:
+I gotta find a markdown cheat sheet for jekyll... That's it for now though.
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
 
-Check out the [Jekyll docs][jekyll-docs] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll Talk][jekyll-talk].
-
-[jekyll-docs]: https://jekyllrb.com/docs/home
-[jekyll-gh]:   https://github.com/jekyll/jekyll
-[jekyll-talk]: https://talk.jekyllrb.com/
+"Follow your heart as long as you live, but do no more than is commanded you. Do not waste the time of your day on nothing." - Ptahhotep (c. 2400 BCE)
