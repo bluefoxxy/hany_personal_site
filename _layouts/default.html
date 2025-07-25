@@ -47,7 +47,8 @@
         <div class="max-w-3xl mx-auto">
           {% if page.layout == "home" or page.url == "/" %}
             <section class="space-y-12">
-              {% for post in paginator.posts %}
+              {% assign posts = site.posts | sort: 'date' | reverse %}
+              {% for post in posts %}
                 <article class="border-b border-gray-200 pb-8">
                   <div class="grid grid-cols-[1fr_auto] gap-4 items-center">
                     <div>
@@ -72,17 +73,6 @@
                 </article>
               {% endfor %}
             </section>
-
-            {% if paginator.total_pages > 1 %}
-              <nav class="mt-12 flex justify-center gap-12 text-sm text-gray-600">
-                {% if paginator.previous_page %}
-                  <a href="{{ paginator.previous_page_path | relative_url }}" class="hover:underline">Newer</a>
-                {% endif %}
-                {% if paginator.next_page %}
-                  <a href="{{ paginator.next_page_path | relative_url }}" class="hover:underline">Older</a>
-                {% endif %}
-              </nav>
-            {% endif %}
           {% else %}
             {{ content }}
           {% endif %}
