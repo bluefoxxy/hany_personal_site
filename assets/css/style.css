@@ -1,0 +1,21 @@
+/* Example baseline styling */
+body {
+  font-family: system-ui, sans-serif;
+  color: #111;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: red;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+* {
+    border: 1px solid red; !important
+}
+

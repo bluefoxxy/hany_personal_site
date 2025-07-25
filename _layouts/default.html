@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      {% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}
+    </title>
+    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- SEO Meta -->
+    <meta property="og:title" content="{{ page.title | default: site.title }}" />
+    <meta property="og:description" content="{{ page.description | default: site.description }}" />
+    <meta property="og:url" content="{{ page.url | absolute_url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="{{ site.url }}/assets/img/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ page.title | default: site.title }}" />
+    <meta name="twitter:description" content="{{ page.description | default: site.description }}" />
+    <meta name="twitter:image" content="{{ site.url }}/assets/img/preview.jpg" />
+
+    <!-- Inter font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="{{ page.url | absolute_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+    </style>
+  </head>
+
+  <body class="bg-white text-gray-900 leading-relaxed flex flex-col min-h-screen">
+    <div class="flex flex-col md:flex-row flex-1 w-full max-w-screen-xl mx-auto">
+      <!-- Sidebar nav -->
+      {% include nav.html %}
+
+      <!-- Main content -->
+      <main class="w-full px-6 py-12 mt-24">
+        <div class="max-w-3xl mx-auto">
+          {% if page.layout == "home" or page.url == "/" %}
+            <section class="space-y-12">
+              {% for post in paginator.posts %}
+                <article class="border-b border-gray-200 pb-8">
+                  <div class="grid grid-cols-[1fr_auto] gap-4 items-center">
+                    <div>
+                      {% if post.date %}
+                        <p class="text-xs text-gray-400">{{ post.date | date: "%B %-d, %Y" }}</p>
+                      {% endif %}
+                      <h2 class="text-2xl text-gray-900 leading-snug">
+                        <a href="{{ post.url | relative_url }}" class="hover:underline">{{ post.title }}</a>
+                      </h2>
+                      <p class="text-sm text-gray-500 mt-1">
+                        {% if post.excerpt %}
+                          {{ post.excerpt | truncate: 240 }}
+                        {% endif %}
+                      </p>
+                    </div>
+                    <div class="self-center pt-1">
+                      <a href="{{ post.url | relative_url }}" class="text-base text-gray-900 font-medium hover:underline whitespace-nowrap">
+                        Read →
+                      </a>
+                    </div>
+                  </div>
+                </article>
+              {% endfor %}
+            </section>
+
+            {% if paginator.total_pages > 1 %}
+              <nav class="mt-12 flex justify-center gap-12 text-sm text-gray-600">
+                {% if paginator.previous_page %}
+                  <a href="{{ paginator.previous_page_path | relative_url }}" class="hover:underline">Newer</a>
+                {% endif %}
+                {% if paginator.next_page %}
+                  <a href="{{ paginator.next_page_path | relative_url }}" class="hover:underline">Older</a>
+                {% endif %}
+              </nav>
+            {% endif %}
+          {% else %}
+            {{ content }}
+          {% endif %}
+        </div>
+      </main>
+    </div>
+
+    {% include footer.html %}
+  </body>
+</html>
